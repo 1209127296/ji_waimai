@@ -175,6 +175,7 @@
       var _this=this;
       _this.order_num = _this.$root.$mp.query.order_num;
       _this.getOrderDetail();
+      _this.deliver="";
       // _this.getDeliveryByOrder();
       // this.timer=setInterval(function(){
       //   _this.order_num = _this.$root.$mp.query.order_num;

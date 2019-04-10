@@ -42,11 +42,13 @@
         addressList:'',
         totalMoney:'',
         ooMoney:0,
-        address:''
+        address:'',
+        isFirst:true
       };
     },
     onShow(){
-      this.fly.post("address/findAddress").then((res)=>{
+      if(this.isFirst){
+        this.fly.post("address/findAddress").then((res)=>{
           this.addressList = res.data.obj
           for(var i=0;i<this.addressList.length;i++){
             if(this.addressList[i].default===true){
@@ -54,7 +56,15 @@
               return
             }
           }
-      });
+        });
+        this.isFirst=false
+      }
+      else{
+        this.isFirst=true;
+        wx.redirectTo({
+          url:"/pages/placeorders/main"
+        })
+      }
     },
     mounted() {
       this.order_remarks="",

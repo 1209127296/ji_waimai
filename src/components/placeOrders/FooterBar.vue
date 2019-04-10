@@ -112,7 +112,7 @@ export default {
           orderAddressId=this.$root.$mp.query.addressId
         } ;*/
         console.log(this.hasAddress)
-      if (this.hasAddress!==undefined) {
+      if (this.addressId!==undefined) {
         this.fly.post("order/addOrder", {
             shop:{
               id:this.shopId,
@@ -142,7 +142,7 @@ export default {
               });
             }
           });
-      } else if (this.hasAddress==undefined) {
+      } else if (this.addressId==undefined) {
        wx.showToast({
          title:"请添加地址",
          icon:'none',

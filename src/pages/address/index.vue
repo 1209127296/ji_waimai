@@ -29,7 +29,8 @@
       return {
         addressList: [
         ],
-        isselect:false
+        isselect:false,
+        isFirst:true
       };
     },
     mounted() {
@@ -38,7 +39,16 @@
       }
     },
     onShow() {
-      this.getAddress();
+      if(this.isFirst){
+        this.getAddress();  
+        this.isFirst=false;
+      }
+      else{
+        this.isFirst=true
+        wx.redirectTo({
+          url:"/pages/address/main",
+        })
+      }
     },
 
     methods: {

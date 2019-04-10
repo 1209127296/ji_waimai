@@ -130,10 +130,10 @@ export default {
           latitude:this.latitude,
           longitude:this.longitude
         }).then((res)=>{
-          wx.navigateBack({
+          wx.redirectTo({
               delta: -1
           });
-        });
+        }); 
       }
       else if(this.isedit==true){
         this.fly.post("address/updateAddress",{
